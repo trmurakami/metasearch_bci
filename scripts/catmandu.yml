@@ -1,8 +1,8 @@
 # in your catmandu.yml
 store:
-  oai_elastic:
+  rppbci_elastic:
     package: ElasticSearch
     options:
       # use my_id instead of _id
       key_prefix: metasearch_
-      index_name: oai
+      index_name: rppbci
