@@ -1,0 +1,5 @@
+#Mover _id para Elasticsearch
+move_field(_id, metasearch_id)
+
+#Assunto
+split_field('subject',';')

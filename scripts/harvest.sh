@@ -1,0 +1,1 @@
+catmandu import OAI --url http://ojs.c3sl.ufpr.br/ojs2/index.php/atoz/oai --metadataPrefix oai_dc --from 2010-12-01T07:00:00Z --until 2016-12-01T07:04:00Z --handler oai_dc --fix fixes.txt  to oai_elastic --bag revistas -v

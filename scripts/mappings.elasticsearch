@@ -1,0 +1,81 @@
+PUT /oai/revistas/_mapping
+{
+    "revistas": {
+        "properties": {
+          "_datestamp": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+          },
+          "_identifier": {
+            "type": "string"
+          },
+          "_setSpec": {
+            "type": "string"
+          },
+          "_status": {
+            "type": "string"
+          },
+          "assuntos": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "contributor": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "coverage": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "creator": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "date": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+          },
+          "description": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "identifier": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "language": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "metasearch_id": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "relation": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "source": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "subject": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      }
+}
