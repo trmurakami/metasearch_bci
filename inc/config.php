@@ -2,8 +2,6 @@
 /* Diretório Base */
 $SERVER_DIRECTORY = "rppbci";
 
-
-
 /* Tradução */
 
 $language = "pt_BR";

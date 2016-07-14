@@ -3,8 +3,12 @@
 <?php
   include 'inc/config.php';
   include 'inc/header.php';
+  include 'inc/functions.php';
+
+  $num_documentos = contar_registros();
+
 ?>
-<title>RPPBCI - Repertório da Produção Periódica Brasileira de Ciência da Informação</title>
+<title><?php echo gettext('branch');?> - Repertório da Produção Periódica Brasileira de Ciência da Informação</title>
 <style type="text/css">
   .ui.inverted.segment {
     background-image: url("inc/images/maceio.jpg");
@@ -131,10 +135,6 @@
 <body>
 <?php include_once('inc/analytics.php') ?>
 
-<?php
-/*Conta a quantidade de artigos na base */
-  //$num_documentos = ($c->count());
-?>
 <?php
 /*Conta a quantidade de referencias na base */
 $aggregate_references_count=array(
