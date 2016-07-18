@@ -1,6 +1,6 @@
 <?php
 /* Diretório Base */
-$SERVER_DIRECTORY = "rppbci";
+$SERVER_DIRECTORY = "metasearch_bci";
 
 /* Tradução */
 

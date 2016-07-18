@@ -1,6 +1,6 @@
-PUT /oai/revistas/_mapping
+PUT /rppbci/artigos/_mapping
 {
-    "revistas": {
+    "artigos": {
         "properties": {
           "_datestamp": {
             "type": "date",

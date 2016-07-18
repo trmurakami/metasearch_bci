@@ -180,7 +180,7 @@ $aggregate_references_count=array(
         <div class="ui transparent icon input">
           <form class="form-inline pull-xs-right" action="result.php" method="get">
           <i class="search icon"></i>
-          <input type="text" name="q" placeholder="Buscar em Títulos, Autores e Resumos">
+          <input type="text" name="search_index" placeholder="Buscar em Títulos, Autores e Resumos">
           <select class="ui dropdown" name="category" style="color:black;">
             <option value="buscaindice">Título, autores e resumos</option>
             <option value="altmetrics.references">Referências</option>
@@ -227,7 +227,7 @@ $aggregate_references_count=array(
             <div class="ui transparent inverted icon input">
               <form class="form-inline pull-xs-right" action="result.php" method="get">
               <i class="search icon"></i>
-              <input type="text" name="q" placeholder="Buscar em Títulos, Autores e Resumos">
+              <input type="text" name="search_index" placeholder="Buscar em Títulos, Autores e Resumos">
               <select class="ui dropdown" name="category" style="color:black;">
                 <option value="buscaindice">Título, autores e resumos</option>
                 <option value="altmetrics.references">Referências</option>
@@ -257,23 +257,37 @@ $aggregate_references_count=array(
   <div class="ui vertical stripe segment" id="search">
     <div class="ui text container">
       <h3 class="ui header" >Faça uma busca no repertório</h3>
+
+<form class="ui form" role="form">
+  <div class="ui action input">
+    <input placeholder="Search..." type="text">
+    <select class="ui compact selection dropdown">
+      <option value="all">All</option>
+      <option selected="" value="articles">Articles</option>
+      <option value="products">Products</option>
+    </select>
+    <div type="submit" class="ui button">Search</div>
+  </div>
+</form>
+
+<!--
       <form class="ui form" role="form" action="result.php" method="get">
         <div class="inline fields">
           <div class="eight wide field">
-            <input name="q" type="text" placeholder="Digite os termos de busca">
+            <input name="search_index" type="text" placeholder="Digite os termos de busca">
           </div>
           <div class="six wide field">
             <select class="ui fluid dropdown" name="category">
-              <option value="buscaindice">Título, autores e resumos</option>
+              <option value="search_index">Título, autores e resumos</option>
               <option value="altmetrics.references">Referências</option>
               <!-- <option value="full_text">Texto completo dos artigos</option> -->
-              <option value="autor">Nome do autor</option>
+              <!--<option value="autor">Nome do autor</option>
               <option value="subject">Assunto</option>
             </select>
             </div>
           <button type="submit" id="s" class="ui large button">Buscar</button>
       </div>
-      </form>
+    </form> --
       <p>A equipe do Lab-iMetrics está constantemente estudando novas formas de disponibilizar os dados para os usuários. Atualmente, você pode fazer a busca nos campos "Título, Autores e Resumos", ou somente nas Referências (Regex), também é possível fazer uma busca no texto completo (Regex) ou nos campos de Autores (Regex) e Assunto (Regex).</p>
       <a class="ui large button" href="advanced_search.php">Busca avançada</a>
 <!--
@@ -300,7 +314,7 @@ $aggregate_references_count=array(
             <div class="content">
               <a class="header">Coleta</a>
               <div class="description">
-                Os dados dos periódicos disponíveis em OAI-PHM são coletados utilizando a ferramenta <a href="http://librecat.org/">Librecat/Catmandu</a> e armazenados em um banco de dados NoSQL <a href="https://www.mongodb.org/">MongoDB</a>. Os dados são coletados automaticamente, totalizando: <?php echo $num_documentos; ?> documentos
+                Os dados dos periódicos disponíveis em OAI-PHM são coletados utilizando a ferramenta <a href="http://librecat.org/">Librecat/Catmandu</a> e armazenados em um banco de dados NoSQL <a href="https://www.elastic.co/products/elasticsearch">ElasticSearch</a>. Os dados são coletados automaticamente, totalizando: <?php echo $num_documentos; ?> documentos
               </div>
             </div>
           </div>
@@ -369,6 +383,8 @@ $aggregate_references_count=array(
     <div class="ui text container">
       <h3 class="ui header">Explorar o repertório pelos índices</h3>
 
+      <?php ultimos_registros(); ?>
+
 <?php
 /* Cria as consultas para o aggregate */
 
@@ -426,5 +442,18 @@ function generateFacetInit($c, $facet_name, $sort_name, $sort_value, $facet_disp
   include 'inc/footer.php';
 ?>
 </div>
+<script>
+  $('.ui.form .submit.button')
+  .api({
+    url: 'result.php',
+    method : 'GET',
+    serializeForm: true,
+    beforeSend: function(settings) {
+    },
+    onSuccess: function(data) {
+    }
+  });
+</script>
+
 </body>
 </html>
