@@ -331,7 +331,7 @@ echo '</div><br/>';
     <div class="image">
       <h4 class="ui center aligned icon header">
         <i class="circular file icon"></i>
-        <a href="result.php?journalci_title=<?php echo $r["_source"]["journalci_title"][0];?>"><?php echo $r["_source"]["journalci_title"][0];?></a> | <a href="result.php?tipo=<?php echo $r["_source"]["tipo"][0];?>"><?php echo $r["tipo"][0];?></a>
+        <a href="result.php?journalci_title=<?php echo $r["_source"]["journalci_title"];?>"><?php echo $r["_source"]["journalci_title"];?></a> | <a href="result.php?tipo=<?php echo $r["_source"]["tipo"][0];?>"><?php echo $r["tipo"][0];?></a>
       </h4>
       <div class="ui horizontal list">
         <div class="item" style="margin-left:0px;">

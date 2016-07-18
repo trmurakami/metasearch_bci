@@ -1,1 +1,1 @@
-catmandu import OAI --url http://ojs.c3sl.ufpr.br/ojs2/index.php/atoz/oai --metadataPrefix oai_dc --from 2010-12-01T07:00:00Z --until 2016-12-01T07:04:00Z --handler oai_dc --fix fixes.txt  to rppbci_elastic --bag artigos -v
+catmandu import OAI --url http://ojs.c3sl.ufpr.br/ojs2/index.php/atoz/oai --metadataPrefix oai_dc --from 2010-12-01T07:00:00Z --until 2016-12-01T07:04:00Z --handler oai_dc --fix fixes.txt --var source="AtoZ: novas praticas em informacao e conhecimento" --fix 'set_array("qualis2014","B5")'  to rppbci_elastic --bag artigos -v

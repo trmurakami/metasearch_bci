@@ -2,6 +2,7 @@
 move_field(_id, metasearch_id)
 
 #Fixes
+add_field("journalci_title","{{source}}")
 add_field("references_ok","false");
 split_field("subject.*",";");
 set_array("tipo","Artigo de periódico");

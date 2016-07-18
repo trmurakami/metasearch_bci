@@ -46,6 +46,10 @@ PUT /rppbci/artigos/_mapping
             "type": "string",
             "index": "not_analyzed"
           },
+          "journalci_title":{
+            "type": "string",
+            "index": "not_analyzed"
+          },
           "language": {
             "type": "string",
             "index": "not_analyzed"

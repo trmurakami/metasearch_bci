@@ -257,49 +257,17 @@ $aggregate_references_count=array(
   <div class="ui vertical stripe segment" id="search">
     <div class="ui text container">
       <h3 class="ui header" >Faça uma busca no repertório</h3>
+        
+        <form class="ui form" role="form" action="result.php" method="get">
+            <div class="ui fluid action input">
+              <input placeholder="Buscar por título, autores ou resumo" type="text" name="search_index">
+              <button class="ui button">Buscar</button>
+            </div>        
+        </form>
 
-<form class="ui form" role="form">
-  <div class="ui action input">
-    <input placeholder="Search..." type="text">
-    <select class="ui compact selection dropdown">
-      <option value="all">All</option>
-      <option selected="" value="articles">Articles</option>
-      <option value="products">Products</option>
-    </select>
-    <div type="submit" class="ui button">Search</div>
-  </div>
-</form>
-
-<!--
-      <form class="ui form" role="form" action="result.php" method="get">
-        <div class="inline fields">
-          <div class="eight wide field">
-            <input name="search_index" type="text" placeholder="Digite os termos de busca">
-          </div>
-          <div class="six wide field">
-            <select class="ui fluid dropdown" name="category">
-              <option value="search_index">Título, autores e resumos</option>
-              <option value="altmetrics.references">Referências</option>
-              <!-- <option value="full_text">Texto completo dos artigos</option> -->
-              <!--<option value="autor">Nome do autor</option>
-              <option value="subject">Assunto</option>
-            </select>
-            </div>
-          <button type="submit" id="s" class="ui large button">Buscar</button>
-      </div>
-    </form> --
-      <p>A equipe do Lab-iMetrics está constantemente estudando novas formas de disponibilizar os dados para os usuários. Atualmente, você pode fazer a busca nos campos "Título, Autores e Resumos", ou somente nas Referências (Regex), também é possível fazer uma busca no texto completo (Regex) ou nos campos de Autores (Regex) e Assunto (Regex).</p>
+      <br/><p>A equipe do Lab-iMetrics está constantemente estudando novas formas de disponibilizar os dados para os usuários. Atualmente, você pode fazer a busca nos campos "Título, Autores e Resumos", ou somente nas Referências (Regex), também é possível fazer uma busca no texto completo (Regex) ou nos campos de Autores (Regex) e Assunto (Regex).</p>
       <a class="ui large button" href="advanced_search.php">Busca avançada</a>
-<!--
-    <div class="ui negative message">
-      <i class="close icon"></i>
-      <div class="header">
-        Atenção: A busca nas referências está funcionando de maneira parcial
-      </div>
-      <p>Estamos trabalhando para completar essa funcionalidade</p></div>
-      </div>
-  </div>
--->
+
 
   <div class="ui vertical stripe segment">
     <div class="ui text container">
@@ -443,7 +411,7 @@ function generateFacetInit($c, $facet_name, $sort_name, $sort_value, $facet_disp
 ?>
 </div>
 <script>
-  $('.ui.form .submit.button')
+  $('.ui.action.input .submit.button')
   .api({
     url: 'result.php',
     method : 'GET',
