@@ -99,6 +99,36 @@ function monta_aggregate($get_content,$date_range){
     return $query;
 }
 
+function counter ($_id) {
+    $ch = curl_init();
+    $method = "POST";
+    $url = "http://localhost/rppbci/artigos_metrics/$_id/_update";
+    $query =
+             '{
+                "script" : {
+                    "inline": "ctx._source.counter += count",
+                    "params" : {
+                        "count" : 1
+                    }
+                },
+                "upsert" : {
+                    "counter" : 1
+                }
+            }';
+
+
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_PORT, 9200);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
+
+    $result = curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($result, TRUE);
+    return $data;
+}
+
 function consulta_elastic ($query) {
     $ch = curl_init();
     $method = "POST";
@@ -111,6 +141,24 @@ function consulta_elastic ($query) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
 
     $result = curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($result, TRUE);
+    return $data;
+}
+
+function query_one_elastic ($_id) {
+    $ch = curl_init();
+    $method = "GET";
+    $url = "http://localhost/rppbci/artigos/$_id";
+
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_PORT, 9200);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
+    curl_setopt($ch, CURLOPT_POSTFIELDS);
+
+    $result = curl_exec($ch);
+
     curl_close($ch);
     $data = json_decode($result, TRUE);
     return $data;
